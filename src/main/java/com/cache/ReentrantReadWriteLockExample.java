@@ -10,8 +10,7 @@ import java.util.concurrent.locks.ReentrantReadWriteLock;
 //Main class
 public class ReentrantReadWriteLockExample {
 
-	private static final ReentrantReadWriteLock lock
-		= new ReentrantReadWriteLock(true);
+	private static final ReentrantReadWriteLock lock = new ReentrantReadWriteLock(true);
 
 	// Initially the string contains only 1 character
 	private static String message = "a";
@@ -46,7 +45,7 @@ public class ReentrantReadWriteLockExample {
 			for (int i = 0; i <= 10; i++) {
 				if (lock.isWriteLocked()) {
 					System.out.println(
-						"I'll take the lock from Write");
+						"I'll take the Lock from Write");
 				}
 
 				// operating lock()
@@ -55,7 +54,7 @@ public class ReentrantReadWriteLockExample {
 				System.out.println(
 					"ReadThread "
 					+ Thread.currentThread().getId()
-					+ "Message is " + message);
+					+ " Message is " + message);
 				lock.readLock().unlock();
 			}
 		}
@@ -74,7 +73,7 @@ public class ReentrantReadWriteLockExample {
 				// Try block to check fr exceptions
 				try {
 					lock.writeLock().lock();
-					message = message.concat("a");
+					message = message.concat("WA");
 				}
 				finally {
 					lock.writeLock().unlock();
@@ -96,7 +95,7 @@ public class ReentrantReadWriteLockExample {
 				// Try block to check for exceptions
 				try {
 					lock.writeLock().lock();
-					message = message.concat("b");
+					message = message.concat("Wb");
 				}
 				finally {
 					lock.writeLock().unlock();
