@@ -39,8 +39,9 @@ public class StreamMapGroupTest {
 	@Test
 	public void streamTest() {
 		// Highest 2 salary
+		System.out.println("Highest 2 salary");
 		Stream<Integer> Salary = Stream.of(2000, 4000, 3000, 1000);
-		Salary.sorted().limit(2).forEach(System.out::println);
+		Salary.sorted(Comparator.reverseOrder()).limit(2).forEach(System.out::println);
 
 		// Sum of Salary
 		int totalSalary = empList.stream().mapToInt(e -> e.getSalary()).sum();
