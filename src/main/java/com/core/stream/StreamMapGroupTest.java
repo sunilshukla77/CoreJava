@@ -1,21 +1,16 @@
 package com.core.stream;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
-
+import com.core.dto.Department;
+import com.core.dto.Employee;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.core.dto.Department;
-import com.core.dto.Employee;
+import java.util.*;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 
-public class StreamExample {
+public class StreamMapGroupTest {
 
 	public List<Employee> empList;
 	public Employee emp;
@@ -42,7 +37,7 @@ public class StreamExample {
 	}
 
 	@Test
-	public void streamTest() throws CloneNotSupportedException {
+	public void streamTest() {
 		// Highest 2 salary
 		Stream<Integer> Salary = Stream.of(2000, 4000, 3000, 1000);
 		Salary.sorted().limit(2).forEach(System.out::println);
