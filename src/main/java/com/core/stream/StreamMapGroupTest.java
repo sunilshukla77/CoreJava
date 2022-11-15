@@ -45,12 +45,12 @@ public class StreamMapGroupTest {
 		Salary.sorted(Comparator.reverseOrder()).limit(2).forEach(System.out::println);
 
 		// Sum of Salary
-		int totalSalary = empList.stream().mapToInt(e -> e.getSalary()).sum();
+		int totalSalary = empList.stream().mapToInt(Employee::getSalary).sum();
 		System.out.println("TotalSalary " + totalSalary);
 
-		// Map and FlatMap : Worked in Citys
+		// Map and FlatMap : Worked in City's
 		List<List<String>> cityWorked = empList.parallelStream()
-				.map(e -> e.getWorked())
+				.map(Employee::getWorked)
 				.collect(Collectors.toList());
 		System.out.println("Map "+ cityWorked);
 
@@ -77,14 +77,14 @@ public class StreamMapGroupTest {
 	}
 
 	@Test
-	public void GroupByworldCount(){
+	public void GroupByWorldCount(){
 		{
 			String s = "He hit the ball so hard that the ball flew away and we lost the BALL";
 			String[] strArray = s.split("\\s");
 			// Both are okay
 			String[] strArray1 = s.split(" ");
 			List<String> lsValue= Arrays.asList(strArray);
-			Set<String> st = (Set<String>) lsValue.stream()
+			Set<String> st = lsValue.stream()
 					.filter(i-> Collections.frequency(lsValue, i)>1)
 					.skip(1).limit(1)
 					.collect(Collectors.toSet());
