@@ -38,7 +38,7 @@ public class StreamMapGroupTest {
 	}
 
 	@Test
-	public void streamTest() {
+	public void StreamTest() {
 		// top 2 Highest salary
 		System.out.println("Top 2 Highest salary");
 		Stream<Integer> Salary = Stream.of(2000, 4000, 3000, 1000);
@@ -62,7 +62,7 @@ public class StreamMapGroupTest {
 	}
 
 	@Test
-	public void groupByTest() {
+	public void GroupByTest() {
 		System.out.println("Department vis highest salary");
 		// Department vis the highest salary
 		Map<Department, List<Employee>> mapOfDepartment = empList.stream()
