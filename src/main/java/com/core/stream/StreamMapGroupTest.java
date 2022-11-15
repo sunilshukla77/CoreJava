@@ -6,6 +6,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import java.util.*;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -38,8 +39,8 @@ public class StreamMapGroupTest {
 
 	@Test
 	public void streamTest() {
-		// Highest 2 salary
-		System.out.println("Highest 2 salary");
+		// top 2 Highest salary
+		System.out.println("Top 2 Highest salary");
 		Stream<Integer> Salary = Stream.of(2000, 4000, 3000, 1000);
 		Salary.sorted(Comparator.reverseOrder()).limit(2).forEach(System.out::println);
 
@@ -63,7 +64,7 @@ public class StreamMapGroupTest {
 	@Test
 	public void groupByTest() {
 		System.out.println("Department vis highest salary");
-		// Department vis highest salary
+		// Department vis the highest salary
 		Map<Department, List<Employee>> mapOfDepartment = empList.stream()
 				.collect(Collectors.groupingBy(Employee::getDep));
 		mapOfDepartment.entrySet().forEach(System.out::println);
@@ -73,6 +74,29 @@ public class StreamMapGroupTest {
 		Map<Department, Long> mapOfDepartment1 = empList.stream()
 				.collect(Collectors.groupingBy(Employee::getDep, Collectors.counting()));
 		mapOfDepartment1.entrySet().forEach(System.out::println);
+	}
+
+	@Test
+	public void GroupByworldCount(){
+		{
+			String s = "He hit the ball so hard that the ball flew away and we lost the BALL";
+			String[] strArray = s.split("\\s");
+			// Both are okay
+			String[] strArray1 = s.split(" ");
+			List<String> lsValue= Arrays.asList(strArray);
+			Set<String> st = (Set<String>) lsValue.stream()
+					.filter(i-> Collections.frequency(lsValue, i)>1)
+					.skip(1).limit(1)
+					.collect(Collectors.toSet());
+			st.forEach(System.out::println);
+
+			Map<String, Long> frequencyMap = lsValue.stream().map(String::toLowerCase)
+					.filter(i-> Collections.frequency(lsValue, i)>1)
+					.filter(val->!val.equals("the"))
+					.collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
+
+			System.out.println(frequencyMap);
+		}
 	}
 
 }
