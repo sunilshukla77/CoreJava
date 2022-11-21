@@ -77,7 +77,7 @@ public class StreamMapGroupTest {
 	}
 
 	@Test
-	public void GroupByWorldCount(){
+	public void GroupByworldCount(){
 		{
 			String s = "He hit the ball so hard that the ball flew away and we lost the BALL";
 			String[] strArray = s.split("\\s");
