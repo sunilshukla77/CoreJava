@@ -1,4 +1,4 @@
-package com.core.stream;
+package com.stream;
 
 import com.core.dto.Department;
 import com.core.dto.Employee;
@@ -82,7 +82,7 @@ public class StreamMapGroupTest {
 			String s = "He hit the ball so hard that the ball flew away and we lost the BALL";
 			String[] strArray = s.split("\\s");
 			// Both are okay
-			String[] strArray1 = s.split(" ");
+			//String[] strArray1 = s.split(" ");
 			List<String> lsValue= Arrays.asList(strArray);
 			Set<String> st = lsValue.stream()
 					.filter(i-> Collections.frequency(lsValue, i)>1)
