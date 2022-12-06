@@ -19,3 +19,6 @@ public class ArrayNumber {
 
     }
 }
+/*
+Index display whose positive and negative value in the array
+ */
