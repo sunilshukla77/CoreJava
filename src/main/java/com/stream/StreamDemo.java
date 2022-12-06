@@ -9,6 +9,5 @@ public class StreamDemo {
         String s2= "This is second line.";
         String s3= "This is third line.";
         Stream.of(s1, s2, s3).forEach(System.out::println);
-        System.out.println();
     }
 }
