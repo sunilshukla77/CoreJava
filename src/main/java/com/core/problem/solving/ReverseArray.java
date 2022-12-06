@@ -14,7 +14,7 @@ public class ReverseArray {
         for (int i=array.length-1;i>=0;i--) {
             if(i>=k) {
                 rev[j] = array[i];
-                System.out.println("\t"+ rev[j]);
+                System.out.print("\t"+ rev[j]);
                 j++;
             } else{
                 rev[j] = array[t];

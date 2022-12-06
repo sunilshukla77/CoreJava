@@ -3,8 +3,8 @@ package com.core.problem.solving;
 public class Add2Num {
     public static void main(String[] args) {
 
-        int[] nums = {2,7,11,15};
-        int[] result= twoSum(nums, 18);
+        int[] nums = {2,5,5,11}; //{2,7,11,15};
+        int[] result= twoSum(nums, 10);
         System.out.println(result[0]+" "+ result[1]);
     }
 
