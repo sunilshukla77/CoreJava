@@ -8,6 +8,7 @@ import org.junit.Test;
 import java.util.*;
 import java.util.function.Function;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 
@@ -67,6 +68,7 @@ public class StreamMapGroupTest {
 		// Department vis the highest salary
 		Map<Department, List<Employee>> mapOfDepartment = empList.stream()
 				.collect(Collectors.groupingBy(Employee::getDep));
+
 		mapOfDepartment.entrySet().forEach(System.out::println);
 
 		System.out.println("Department vis count");
@@ -97,6 +99,34 @@ public class StreamMapGroupTest {
 
 			System.out.println(frequencyMap);
 		}
+	}
+
+	@Test
+	public void charCount(){
+		String str = "Japan";
+		str.chars().mapToObj(i -> (char) i)
+				.collect(Collectors.groupingBy(i -> i, Collectors.counting())).forEach((k, v) -> System.out.println(k + " " + v));
+	}
+
+
+	//Find first missing integer value in the array
+	@Test
+	public void intToInteger(){
+		int[] ints = {7,8,2,3,5};
+		//Convert primitive type to wrapper
+		Set<Integer> intSet = IntStream.of(ints).boxed().sorted().collect(Collectors.toSet());
+		int initValue= intSet.iterator().next();
+		int minMissingValue= 0;
+		System.out.println(initValue);
+		for (int value : intSet){
+			if(!intSet.contains(initValue)){
+				minMissingValue = initValue;
+				break;
+			}
+			initValue++;
+		}
+		System.out.println("Find first missing integer value in the array : "+minMissingValue);;
+
 	}
 
 }

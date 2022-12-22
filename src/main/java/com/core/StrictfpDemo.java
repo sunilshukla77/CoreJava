@@ -5,7 +5,7 @@ public class StrictfpDemo {
 	/*
 	 * By default, the floating-point computations in Java are platform-dependent. 
 	 * And so, the floating-point outcome's precision depends on the hardware in-use.
-	 * We'll learn how to use strictfp in Java to ensure platform-independent floating-point computations.
+	 * We'll learn how to use strictfp in Java to ensure platform-independent floating-point computations.
 	 */
 	public strictfp float calculatePercent(int value, int total) {
 		return (value *100)/total;
