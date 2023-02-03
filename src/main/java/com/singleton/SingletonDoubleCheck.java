@@ -4,6 +4,7 @@ class SingletonDoubleCheck {
 
 //Java Program to write double checked locking 
 //of Singleton class
+// Volatile variables have the visibility features of synchronized but not the atomicity features.
 
  private volatile static SingletonDoubleCheck instance;
 
