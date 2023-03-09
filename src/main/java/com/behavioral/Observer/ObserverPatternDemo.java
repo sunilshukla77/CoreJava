@@ -21,3 +21,4 @@ public class ObserverPatternDemo {
 
  * ObserverPatternDemo, our demo class, will use Subject and concrete class object to show observer pattern in action.
  */
+

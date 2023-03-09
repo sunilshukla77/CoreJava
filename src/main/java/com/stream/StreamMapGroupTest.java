@@ -40,12 +40,12 @@ public class StreamMapGroupTest {
 
     @Test
     public void StreamTest() {
-        // top 2 Highest salary
-        System.out.println("Top 2 Highest salary");
-        Stream<Integer> Salary = Stream.of(2000, 4000, 3000, 1000);
-        Salary.sorted(Comparator.reverseOrder()).limit(2).forEach(System.out::println);
+        // top 2 Highest salaryStream
+        System.out.println("Top 2 Highest salaryStream");
+        Stream<Integer> salaryStream = Stream.of(2000, 4000, 3000, 1000);
+        salaryStream.sorted(Comparator.reverseOrder()).limit(2).forEach(System.out::println);
 
-        // Sum of Salary mapToInt means parse into integer
+        // Sum of salaryStream mapToInt means parse into integer
         int totalSalary = empList.stream().mapToInt(Employee::getSalary).sum();
         System.out.println("TotalSalary " + totalSalary);
 

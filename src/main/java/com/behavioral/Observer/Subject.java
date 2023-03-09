@@ -5,6 +5,7 @@ import java.util.List;
 
 public class Subject {
 
+    //Subject means Observable Class or Interface List of Observer and send Notification
     private List<Observer> observers = new ArrayList<Observer>();
     private int state;
 
