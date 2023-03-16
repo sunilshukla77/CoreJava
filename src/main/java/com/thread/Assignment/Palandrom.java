@@ -1,4 +1,4 @@
-package com.problems;
+package com.thread.Assignment;
 
 import java.util.List;
 import java.util.stream.Collectors;

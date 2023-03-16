@@ -77,7 +77,6 @@ public class StreamMapGroupTest {
                 .collect(Collectors.groupingBy(Employee::getDep, Collectors.counting()));
         mapOfDepartment1.entrySet().forEach(System.out::println);
     }
-
     @Test
     public void GroupByworldCount() {
         String s = "He hit the ball so hard that the ball flew away and we lost the BALL";
@@ -103,7 +102,7 @@ public class StreamMapGroupTest {
     public void charCount() {
         String str = "Japan";
         str.chars().mapToObj(i -> (char) i)
-                .collect(Collectors.groupingBy(i -> i, Collectors.counting())).forEach((k, v) -> System.out.println(k + " " + v));
+                .collect(Collectors.groupingBy(i->i, Collectors.counting())).forEach((k, v) -> System.out.println(k + " " + v));
     }
 
 
@@ -111,8 +110,10 @@ public class StreamMapGroupTest {
     @Test
     public void intToInteger() {
         int[] ints = {7, 8, 2, 3, 5};
+        Integer[] intgh= {2,3,4,5,};
         //Convert primitive type to wrapper
         Set<Integer> intSet = IntStream.of(ints).boxed().sorted().collect(Collectors.toSet());
+        List<Integer> intL= Arrays.stream(intgh).sorted().collect(Collectors.toList());
         int initValue = intSet.iterator().next();
         int minMissingValue = 0;
         System.out.println(initValue);
