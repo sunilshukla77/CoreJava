@@ -10,14 +10,14 @@ public class EvenOdd {
         synchronized(this){
 
             while(counter<number) {
-                while (number % 2 == 0) {
+                while (counter % 2 == 0) {
                     try {
                         wait();
                     } catch (InterruptedException e) {
                         throw new RuntimeException(e);
                     }
                 }
-                System.out.println("Counter "+counter);
+                System.out.println("Even Counter "+counter);
                 counter++;
                 notifyAll();
             }
@@ -27,7 +27,7 @@ public class EvenOdd {
     void printOdd(){
         synchronized (this) {
             while (counter < number) {
-                while (number % 2 == 1){
+                while (counter % 2 == 1){
                     try {
                         wait();
                     } catch (InterruptedException e) {
@@ -35,7 +35,7 @@ public class EvenOdd {
                     }
 
                 }
-                System.out.println("EvenOdd.printOdd "+ counter);
+                System.out.println("Print Odd "+ counter);
                 counter++;
                 notifyAll();
             }

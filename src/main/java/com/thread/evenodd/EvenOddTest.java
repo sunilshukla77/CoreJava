@@ -2,7 +2,7 @@ package com.thread.evenodd;
 
 public class EvenOddTest {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
 
         EvenOdd.number=10;
         final EvenOdd evenOdd = new EvenOdd();
@@ -10,6 +10,7 @@ public class EvenOddTest {
             @Override
             public void run() {
                 evenOdd.printOdd();
+
             }
         });
 
@@ -21,7 +22,8 @@ public class EvenOddTest {
         });
 
         t1.start();
-
         t2.start();
+        t1.join();
+        t2.join();
     }
 }

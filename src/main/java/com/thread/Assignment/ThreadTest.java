@@ -38,7 +38,7 @@ public class ThreadTest {
 
     void executeUrl(List<String> urls) throws InterruptedException {
         ExecutorService exc = Executors.newFixedThreadPool(NUM_OF_THREAD);
-        urls.parallelStream().forEach(url -> exc.execute(new UrlThread(url, new Date())));
+        urls.stream().forEach(url -> exc.execute(new UrlThread(url, new Date())));
 
         //exc.submit(new UrlThread(url, new Date()));
 
