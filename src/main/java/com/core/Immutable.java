@@ -33,7 +33,7 @@ public class Immutable {
 	/*
 	 * 1. Class should be final 
 	 * 2. All veriable are private and final 
-	 * 3. No setter * complete constructor
-	 * 4. Refer Person class and getAddress {address.clone()} 
+	 * 3. No setter * complete parametrise constructor
+	 * 4. Refer Person class and getAddress {address.clone()} for Deep clone
 	 */
 }

@@ -12,7 +12,7 @@ public class EvenOdd {
             while(counter<number) {
                 while (counter % 2 == 0) {
                     try {
-                        wait();
+                        wait(1000);
                     } catch (InterruptedException e) {
                         throw new RuntimeException(e);
                     }
@@ -29,7 +29,7 @@ public class EvenOdd {
             while (counter < number) {
                 while (counter % 2 == 1){
                     try {
-                        wait();
+                        wait(1000);
                     } catch (InterruptedException e) {
                         throw new RuntimeException(e);
                     }
