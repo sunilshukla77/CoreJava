@@ -1,4 +1,4 @@
-package com.core.stream;
+package com.stream;
 
 import java.util.Arrays;
 import java.util.Collection;
@@ -13,14 +13,14 @@ import java.util.stream.Stream;
 
 import com.core.dto.Product;
 
-public class StreamDistinct {
+public class BasicStream {
 	public static void main(String[] args) {
 		Collection<String> list = Arrays.asList("a", "b", "c", "d", "a", "d");
 		List<String> distinctElements = list.stream().distinct().collect(Collectors.toList());
 		System.out.println(distinctElements);
 
 		// Data Array -> int, long, double, char, float Primitive data type.
-		// Collection Framework -> Integer, Float, Cherector, string, employee,
+		// Collection Framework -> Integer, Float, Cherector, String, employee,
 		// Stream api-> We have create Strema Stream Creation
 		// Stream of Primitives-> IntStream, LongStream, DoubleStream
 
@@ -31,8 +31,6 @@ public class StreamDistinct {
 		
 		// Stream Can be collections type like list, set, Collection
 		// Convert Collection to Stream
-		Stream<String> streamCollection = list.stream();
-
 		// Convert Array to Stream
 		String[] stringArray = new String[] { "a", "b", "C", "d", "b" };
 		Stream<String> streamOfArray = Arrays.stream(stringArray);
@@ -40,58 +38,28 @@ public class StreamDistinct {
 		// Stream is immutable
 		Stream<String> streamBuild = Stream.<String>builder().add("Sunil").add("BVG").add("test").build();
 		Stream<Integer> streamIterated = Stream.iterate(40, n -> n + 2).limit(20);
-		System.out.println(streamIterated.collect(Collectors.toList()));
+		System.out.println("Iterate "+ streamIterated.collect(Collectors.toList()));
 
 		// Stream of Primitives-> IntStream, LongStream and DoubleStream
-		IntStream intStream = IntStream.range(1, 5);
+		IntStream intStream = IntStream.range(1, 3).peek(System.out::println);
 
 		Random random = new Random();
-		LongStream stream = random.longs(5);
+		IntStream stream = random.ints(3).peek(System.out::println);
 		stream.forEach(System.out::println);
 
 		// Referencing a Stream, Java 8 streams can't be reused.
 		Stream<String> st = Stream.of("a", "b", "c", "d", "c").filter(e -> e.contains("c"));
 		Optional<String> anyElement = st.findAny();
-		// Optional<String> findFirstElement = anyElement.findFirst();
 		System.out.println(anyElement);
-		// System.out.println(findFirstElement);
 
-		// Stream pipeline->To perform a sequence of operations over the elements of the
-		// data source and aggregate their results,
 		// we need three parts: the source, intermediate operation(s) and a terminal
 		// operation.
-
-		Stream<String> oneModifiedStream = Stream.of("abcd", "bcda", "sunil", "bvga").skip(1);
-
-		Stream<String> secondModifiedStream = oneModifiedStream.skip(1).map(e -> e.substring(2, 4));
-
-		System.out.println(oneModifiedStream);
-		System.out.println(secondModifiedStream);
-
-		// Stream Reduction-> reduce() and collect
-
-		OptionalInt reduced = IntStream.range(1, 5).reduce((a, b) -> a + b); // 1+2+3+4= 10
-		System.out.println(reduced);
-
-		// 10+1= 11, 10+2=12, 10+3=13 combine 11+12+13= 36
-		int sumval = Arrays.asList(1, 2, 3).parallelStream().reduce(10, (a, b) -> a + b, (a, b) -> {
-			System.out.println("Combined value called");
-			return a + b;
-		});
-
-		System.out.println(sumval);
 
 		List<Product> productList = Arrays.asList(new Product(23, "potatoes"), new Product(14, "orange"),
 				new Product(13, "lemon"), new Product(23, "bread"), new Product(13, "sugar"));
 
-		List<String> productName = productList.stream().map(Product::getProductname).collect(Collectors.toList());
-		System.out.println(productName.toString());
-
-		// average value
-		// sum of all numeric elements
-		// Grouping of stream’s elements
-		// Dividing stream’s elements into groups according to some predicate
-		// Custom collector
+		List<String> productNameList = productList.stream().map(Product::getProductname).collect(Collectors.toList());
+		System.out.println(productNameList.toString());
 
 	}
 

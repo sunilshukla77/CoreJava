@@ -12,12 +12,6 @@ import java.util.Map;
 
 public class DsAlgo1 {
 
-
-    @Before
-    public void setup() {
-
-    }
-
     /**
      * start traversing from end compare MAX value
      * The time complexity of this solution is O(n).
@@ -66,6 +60,10 @@ public class DsAlgo1 {
         dataSet.put("Delhi", "Goa");
 
         printResult(dataSet, "Bombay");
+
+        double d1 = 12342.23;
+        double d2 = 12342.23;
+        System.out.println(d1==d2);
     }
 
     private void printResult(Map<String, String> dataSet, String source) {

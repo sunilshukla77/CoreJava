@@ -1,8 +1,9 @@
 package com.core.dto;
 
+import java.util.Comparator;
 import java.util.List;
 
-public class Employee{
+public class Employee implements Comparator<Employee> {
 	
 	private String name;
 	private int age;
@@ -58,8 +59,17 @@ public class Employee{
 
 	@Override
 	public String toString() {
-		return "Employee [name=" + name + ", salary=" + salary + "]";
+		return "Employee [name=" + name + ", age = " + age + ", salary=" + salary + "]";
 	}
-	
-	
+
+
+	/**
+	 * @param o1 the first object to be compared.
+	 * @param o2 the second object to be compared.
+	 * @return
+	 */
+	@Override
+	public int compare(Employee o1, Employee o2) {
+		return o1.getName().compareTo(o2.getName());
+	}
 }

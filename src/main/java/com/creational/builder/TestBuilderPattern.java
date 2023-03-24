@@ -1,4 +1,4 @@
-package com.creational.pattern.builder;
+package com.creational.builder;
 
 public class TestBuilderPattern {
 

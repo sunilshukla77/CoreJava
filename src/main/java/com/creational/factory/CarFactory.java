@@ -1,4 +1,4 @@
-package com.creational.pattern.factory;
+package com.creational.factory;
 
 public class CarFactory {
 

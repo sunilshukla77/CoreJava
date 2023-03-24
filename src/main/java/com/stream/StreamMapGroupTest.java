@@ -45,9 +45,39 @@ public class StreamMapGroupTest {
         Stream<Integer> salaryStream = Stream.of(2000, 4000, 3000, 1000);
         salaryStream.sorted(Comparator.reverseOrder()).limit(2).forEach(System.out::println);
 
+        //Sort By age and name
+        List<Employee> employeesSortedList = empList.stream().sorted((o1, o2) -> {
+                    if (o1.getAge() == o2.getAge())
+                        return o1.getName().compareTo(o2.getName());
+                    else if (o1.getAge() > o2.getAge())
+                        return 1;
+                    else return -1;
+                })
+                .collect(Collectors.toList());
+        System.out.println("Sort by age and name" + employeesSortedList);
+
+        // Sort by Salary
+        List<Employee> employeesSortedList1 = empList.stream()
+                .sorted((o1, o2) -> (int) (o2.getSalary() - o1.getSalary())).collect(Collectors.toList());
+        System.out.println(employeesSortedList1);
+
+        //Ascending order salary
+        List<Employee> employeesSortedList2 = empList.stream()
+                .sorted(Comparator.comparingLong(Employee::getSalary).reversed()).collect(Collectors.toList()); //ascending order
+        System.out.println(employeesSortedList2);
+
         // Sum of salaryStream mapToInt means parse into integer
         int totalSalary = empList.stream().mapToInt(Employee::getSalary).sum();
         System.out.println("TotalSalary " + totalSalary);
+        //Update Salary using stream
+        List<Employee> newList = empList.stream()
+                .map(e -> {
+                    e.setSalary(e.getSalary() + 100);
+                    return e;
+                })
+                .collect(Collectors.toList());
+
+        System.out.println(newList);
 
         // Map and FlatMap : Worked in City's
         List<List<String>> cityWorked = empList.parallelStream()
@@ -77,6 +107,7 @@ public class StreamMapGroupTest {
                 .collect(Collectors.groupingBy(Employee::getDep, Collectors.counting()));
         mapOfDepartment1.entrySet().forEach(System.out::println);
     }
+
     @Test
     public void GroupByworldCount() {
         String s = "He hit the ball so hard that the ball flew away and we lost the BALL";
@@ -102,7 +133,7 @@ public class StreamMapGroupTest {
     public void charCount() {
         String str = "Japan";
         str.chars().mapToObj(i -> (char) i)
-                .collect(Collectors.groupingBy(i->i, Collectors.counting())).forEach((k, v) -> System.out.println(k + " " + v));
+                .collect(Collectors.groupingBy(i -> i, Collectors.counting())).forEach((k, v) -> System.out.println(k + " " + v));
     }
 
 
@@ -110,10 +141,10 @@ public class StreamMapGroupTest {
     @Test
     public void intToInteger() {
         int[] ints = {7, 8, 2, 3, 5};
-        Integer[] intgh= {2,3,4,5,};
+        Integer[] intgh = {2, 3, 4, 5,};
         //Convert primitive type to wrapper
         Set<Integer> intSet = IntStream.of(ints).boxed().sorted().collect(Collectors.toSet());
-        List<Integer> intL= Arrays.stream(intgh).sorted().collect(Collectors.toList());
+        //List<Integer> intL= Arrays.stream(intgh).sorted().collect(Collectors.toList());
         int initValue = intSet.iterator().next();
         int minMissingValue = 0;
         System.out.println(initValue);
