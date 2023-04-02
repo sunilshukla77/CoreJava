@@ -31,5 +31,6 @@ public class UniformString {
         for (int a:val) {
             System.out.println(a);
         }
+
     }
 }

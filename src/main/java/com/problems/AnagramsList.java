@@ -1,14 +1,14 @@
 package com.problems;
 
-import javax.swing.text.html.parser.Entity;
 import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 /*
- * Set of anagrams of list of words. The output should be words which are anagrams from the list should be grouped together.
+ * Set of anagrams of list of words. The output should be words which are anagrams from the list should be
+ * grouped together.
  */
-public class Ex3 {
+public class AnagramsList {
     // Function to group anagrams from a given list of words
     public static Set<Set<String>> groupAnagrams(List<String> words)
     {

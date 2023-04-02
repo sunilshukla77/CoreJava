@@ -24,8 +24,7 @@ public class PrimeFactorization {
     {
 
         System.out.println(primeFactorization(6) + " " + primeFactorization(5));
-        if(primeFactorization(6).equals(Arrays.asList(2,3))
-                &&
+        if(primeFactorization(6).equals(Arrays.asList(2,3)) &&
                 primeFactorization(5).equals(Arrays.asList(5))
         ) {
             System.out.println("All passed");

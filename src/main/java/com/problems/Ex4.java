@@ -3,7 +3,8 @@ package com.problems;
 import java.util.Arrays;
 import java.util.Comparator;
 /*
-Set of anagrams of list of words. The output should be words which are anagrams from the list should be grouped together.
+Set of anagrams of list of words. The output should be words which are anagrams from the list should
+be grouped together.
  */
 public class Ex4 {
 // A Java program to print all anagrams together

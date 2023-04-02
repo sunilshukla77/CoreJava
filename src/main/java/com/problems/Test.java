@@ -5,9 +5,9 @@ import java.util.List;
 
 public class Test {
     public static void main(String[] args) {
-        int i =10;
-        byte j= 20;
-        float k=30; // Primitive data type
+        int i = 10;
+        byte j = 20;
+        float k = 30; // Primitive data type
 
         Float f = k; //wrapper class
 

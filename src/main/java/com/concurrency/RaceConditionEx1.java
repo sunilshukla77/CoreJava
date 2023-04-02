@@ -3,6 +3,11 @@ package com.concurrency;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.atomic.AtomicInteger;
+/*
+ * A condition in which the critical section
+ * (a part of the program where shared memory is accessed) is concurrently executed by two or more threads.
+ * It leads to incorrect behavior of a program.
+ */
 class Counter {
 	//private int count = 0;
 	private AtomicInteger atomicCount = new AtomicInteger(0);
@@ -40,11 +45,7 @@ class Counter {
         return atomicCount.incrementAndGet();
     }
 }
-/*
- * A condition in which the critical section
- * (a part of the program where shared memory is accessed) is concurrently executed by two or more threads.
- * It leads to incorrect behavior of a program.
- */
+
 public class RaceConditionEx1 {
 	public static void main(String[] args) {
 		final Counter c = new Counter();
