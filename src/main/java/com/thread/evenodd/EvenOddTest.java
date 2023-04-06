@@ -1,12 +1,15 @@
 package com.thread.evenodd;
 
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+
 public class EvenOddTest {
 
     public static void main(String[] args) throws InterruptedException {
 
         EvenOdd.number=10;
         final EvenOdd evenOdd = new EvenOdd();
-        Thread t1 = new Thread(new Runnable() {
+        /*Thread t1 = new Thread(new Runnable() {
             @Override
             public void run() {
                 evenOdd.printOdd();
@@ -24,6 +27,10 @@ public class EvenOddTest {
         t1.start();
         t2.start();
         t1.join();
-        t2.join();
+        t2.join();*/
+
+        ExecutorService tp = Executors.newFixedThreadPool(2);
+        tp.execute(()-> evenOdd.printEven());
+        tp.execute(()->evenOdd.printOdd());
     }
 }

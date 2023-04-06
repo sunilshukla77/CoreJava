@@ -121,6 +121,7 @@ public class StreamMapGroupTest {
                 .collect(Collectors.toSet());
         st.forEach(System.out::println);
 
+        // Repitable words with count more than 1
         Map<String, Long> frequencyMap = lsValue.stream().map(String::toLowerCase)
                 .filter(i -> Collections.frequency(lsValue, i) > 1)
                 .filter(val -> !val.equals("the"))
@@ -133,7 +134,8 @@ public class StreamMapGroupTest {
     public void charCount() {
         String str = "Japan";
         str.chars().mapToObj(i -> (char) i)
-                .collect(Collectors.groupingBy(i -> i, Collectors.counting())).forEach((k, v) -> System.out.println(k + " " + v));
+                .collect(Collectors.groupingBy(i -> i, Collectors.counting()))
+                .forEach((k, v) -> System.out.println(k + " " + v));
     }
 
 

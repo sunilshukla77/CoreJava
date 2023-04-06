@@ -9,7 +9,7 @@ import java.util.concurrent.atomic.AtomicInteger;
  * It leads to incorrect behavior of a program.
  */
 class Counter {
-	//private int count = 0;
+	//`	private volatile int count = 0;
 	private AtomicInteger atomicCount = new AtomicInteger(0);
 	
 	/*

@@ -3,7 +3,7 @@ package com.thread.evenodd;
 public class EvenOdd {
 
     int counter;
-    static int number;
+    static int number= 10;
 
     void printEven(){
 

@@ -1,7 +1,10 @@
 package com.behavioral.Observer;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.function.Function;
+import java.util.stream.Collectors;
 
 public class TestNokia {
 
@@ -15,6 +18,12 @@ public class TestNokia {
                 map.put(ch[i], counter++);
             }
         }
-        map.entrySet().stream().filter(v -> v.getValue() > 0).forEach(System.out::println);
+        map.entrySet().stream().filter(v -> v.getValue() > 1).forEach(System.out::println);
+        // or
+        Map<Character, Long> chaMap =
+                str.chars().mapToObj(c -> (char) c)
+                        .collect(Collectors.groupingBy(Function.identity(), Collectors. counting()));
+       chaMap.entrySet().stream().filter(v->v.getValue()>1).forEach(System.out::print);
+
     }
 }

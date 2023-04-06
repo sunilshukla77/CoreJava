@@ -72,7 +72,5 @@ public class DsAlgo1 {
             System.out.println(source + "->" + destination);
             printResult(dataSet, destination);
         }
-
-
     }
 }

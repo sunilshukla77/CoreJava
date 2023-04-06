@@ -33,17 +33,17 @@ class SingletonDoubleCheck {
      return instance;
  }
 
- // 3rd version : An implementation of double checked
+ // 3rd version : An implementation of double-checked
  // locking of Singleton. Intention is to reduce cost
  // of synchronization and improve performance, by only
  // locking critical section of code, the code which
  // creates instance of Singleton class.
  public static SingletonDoubleCheck getInstance3()
  {
-     if (instance == null) {
+     if (instance == null) { // if instance is not created than only accure the lock.
          synchronized (SingletonDoubleCheck.class)
          {
-             if (instance == null) {
+             if (instance == null) { // again check and return instance
                  instance = new SingletonDoubleCheck();
              }
          }
