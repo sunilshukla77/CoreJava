@@ -4,20 +4,45 @@ import org.junit.Test;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.stream.Stream;
 
 public class Permitation {
     @Test
-    public void permutationCombination(){
-        String value = "abc";
-        int fact =1;
-        Map<String, Integer> insertI= new HashMap<>();
-        for (int i=1;i<=value.length();i++){
-            fact*=i; //fact = fact*i;
+    public void permutationCombination() {
+        String a = "abc";
+        printPermutation(a.toCharArray(), 0);
 
-            System.out.println(fact);
+    }
+
+    //cid = current index
+    private void printPermutation(char[] chars, int cid) {
+        if(cid == chars.length-1) {
+            System.out.println("\n");
+            for (int i = 0; i < chars.length; i++) {
+                System.out.print(chars[i] + " ");
+            }
         }
-        for (int i = 0; i < fact; i++) {
 
+        for (int i = cid; i < chars.length; i++) {
+            swap(chars, i, cid);
+            printPermutation(chars, cid+1);
+            swap(chars, i, cid);
+        }
+    }
+
+    private void swap(char[] chars, int i, int j) {
+        char temp = chars[i];
+        chars[i] = chars[j];
+        chars[j] = temp;
+    }
+
+    @Test
+    public void fabonesisStream() {
+        String value = "abc";
+        int fact = 1;
+        for (int i = 1; i <= value.length(); i++) {
+            fact *= i; //fact = fact*i; 1*2*3 =6
+            System.out.println(fact);
         }
     }
 }

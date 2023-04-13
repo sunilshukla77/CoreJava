@@ -5,25 +5,13 @@ import java.util.LinkedHashSet;
 import java.util.LinkedList;
 import java.util.Set;
 
-public class LRUCache {
-
-    /*
-The LRU is an acronym for Least Recently Used Cache and MRU is the acronym for Most Recently Used .
-The Recently Used cache is which just get inserted in cache or reused is MRU ,
- and if it was not used for a while or used very lately, then is known as LRU Cache.
-     */
-
-    //LFU Least frequently used: 2 hashmap
-    //LRU Lease recently used cache: hashmap and duble link list
-    //MFU Most recently used
-
-    // Java program to implement LRU cache
-    // using LinkedHashSet
+class LRU {
 
     Set<Integer> cache;
     int capacity;
 
-    public LRUCache(int capacity) {
+    public LRU(int capacity)
+    {
         this.cache = new LinkedHashSet<Integer>(capacity);
         this.capacity = capacity;
     }
@@ -32,7 +20,8 @@ The Recently Used cache is which just get inserted in cache or reused is MRU ,
     // present in cache. Else it moves the key to
     // front by first removing it and then adding
     // it, and returns true.
-    public boolean get(int key) {
+    public boolean get(int key)
+    {
         if (!cache.contains(key))
             return false;
         cache.remove(key);
@@ -41,13 +30,15 @@ The Recently Used cache is which just get inserted in cache or reused is MRU ,
     }
 
     /* Refers key x with in the LRU cache */
-    public void refer(int key) {
+    public void refer(int key)
+    {
         if (get(key) == false)
             put(key);
     }
 
     // displays contents of cache in Reverse Order
-    public void display() {
+    public void display()
+    {
         LinkedList<Integer> list = new LinkedList<>(cache);
 
         // The descendingIterator() method of
@@ -60,7 +51,8 @@ The Recently Used cache is which just get inserted in cache or reused is MRU ,
             System.out.print(itr.next() + " ");
     }
 
-    public void put(int key) {
+    public void put(int key)
+    {
 
         if (cache.size() == capacity) {
             int firstKey = cache.iterator().next();
@@ -71,8 +63,8 @@ The Recently Used cache is which just get inserted in cache or reused is MRU ,
     }
 
     // Driver code
-    public static void main(String[] args) {
-
+    public static void main(String[] args)
+    {
         LRU ca = new LRU(4);
         ca.refer(1);
         ca.refer(2);

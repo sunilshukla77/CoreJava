@@ -1,5 +1,7 @@
 package com.cache;
 
+import org.junit.Test;
+
 import java.util.Deque;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -56,7 +58,8 @@ public class LFUDoublyQueue {
     }
 
     // Driver code
-    public static void main(String[] args) {
+    @Test
+    public void LFU(){
         LFUDoublyQueue cache = new LFUDoublyQueue(4);
         cache.refer(1);
         cache.refer(2);

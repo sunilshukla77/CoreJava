@@ -14,7 +14,7 @@ public class Palandrom {
         System.out.println("Palandrom " + isPalandrom(arrayChar));
     }
 
-    static boolean isPalandrom(List<Character> arrayChar) {
+    static boolean isPalandrom(List<Character> arrayChar) {// half rotation
         for (int i = 0, j = arrayChar.size() - 1; i <= arrayChar.size() / 2; i++, j--) {
             if (!arrayChar.get(i).equals(arrayChar.get(j))) {
                 return false;

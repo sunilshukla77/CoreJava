@@ -20,8 +20,10 @@ class PrimeFactor
         //System.out.println("N= "+ Math.sqrt(n));
         // n must be odd at this point. So we can
         // skip one element (Note i = i +2)
+        System.out.println(Math.sqrt(n));
         for (int i = 3; i <= Math.sqrt(n); i+= 2)
         {
+            System.out.println("In B "+Math.sqrt(n));
             //System.out.println("N= "+ Math.sqrt(n));
             // While i divides n, print i and divide n
             while (n%i == 0)

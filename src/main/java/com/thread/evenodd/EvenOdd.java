@@ -2,42 +2,43 @@ package com.thread.evenodd;
 
 public class EvenOdd {
 
-    int counter;
+    int  counter;
     static int number= 10;
 
-    void printEven(){
 
-        synchronized(this){
+    void printEven(Object o1){
+
+        synchronized(o1){
 
             while(counter<number) {
                 while (counter % 2 == 0) {
                     try {
-                        wait(1000);
+                        o1.wait(1000);
                     } catch (InterruptedException e) {
                         throw new RuntimeException(e);
                     }
                 }
-                System.out.println("Even Counter "+counter);
+                System.out.println("Odd Counter "+counter);
                 counter++;
-                notifyAll();
+                o1.notifyAll();
             }
         }
     }
 
-    void printOdd(){
-        synchronized (this) {
+    void printOdd(Object o1){
+        synchronized (o1) {
             while (counter < number) {
                 while (counter % 2 == 1){
                     try {
-                        wait(1000);
+                        o1.wait(1000);
                     } catch (InterruptedException e) {
                         throw new RuntimeException(e);
                     }
 
                 }
-                System.out.println("Print Odd "+ counter);
+                System.out.println("Print Even "+ counter);
                 counter++;
-                notifyAll();
+                o1.notify();
             }
         }
     }

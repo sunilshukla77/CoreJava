@@ -7,11 +7,6 @@ public class Subscribe implements Runnable{
     Subscribe(BlockingQueue bq){
         this.bq= bq;
     }
-
-
-    /**
-     *
-     */
     @Override
     public void run() {
         while (true){

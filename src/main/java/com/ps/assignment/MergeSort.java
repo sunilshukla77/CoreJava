@@ -35,7 +35,7 @@ public class MergeSort {
         }
         return combineArray;
     }
-    private int[] mergeSort(int[] arr) {
+    private int[] mergeSort(int[] arr) { // Split array into 2 part from 0 to mid and from mid to length
         if(arr.length==1) return arr;
 
         int mid = arr.length/2;
@@ -66,12 +66,6 @@ public class MergeSort {
         System.out.println( "\nOriginal 2 Array: " + Arrays.toString( arr1 ) );
 
         System.out.println( "\nSorted Array: " + Arrays.toString( result ) );
-
-    }
-
-    @Test
-    public void seqSort(){
-        //int[] join = Arrays.
 
     }
 }

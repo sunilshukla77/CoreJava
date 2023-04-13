@@ -56,6 +56,10 @@ public class StreamMapGroupTest {
                 .collect(Collectors.toList());
         System.out.println("Sort by age and name" + employeesSortedList);
 
+        String str = "Japan";
+        str.chars().mapToObj(i -> (char) i)
+                .collect(Collectors.groupingBy(i -> i, Collectors.counting()))
+                .forEach((k, v) -> System.out.println(k + " " + v));
         // Sort by Salary
         List<Employee> employeesSortedList1 = empList.stream()
                 .sorted((o1, o2) -> (int) (o2.getSalary() - o1.getSalary())).collect(Collectors.toList());
