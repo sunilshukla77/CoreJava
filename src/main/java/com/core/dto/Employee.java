@@ -1,17 +1,30 @@
 package com.core.dto;
 
 import java.util.Comparator;
+import java.util.Date;
 import java.util.List;
 
-public class Employee implements Comparator<Employee> {
+public class Employee implements Comparable<Employee> {
 	
 	private String name;
 	private int age;
 	private int salary;
+
+	private Date dob;
+
+	public Date getDob() {
+		return new Date(this.dob.getTime());
+	}
+
 	private List<String> worked;
 	private Department dep;
 	
 	public Employee() {}
+
+	public Employee(String name, int salary) {
+		this.name = name;
+		this.salary = salary;
+	}
 	public Employee(String name, int age, List<String> worked, int salary, Department d) {
 		super();
 		this.name = name;
@@ -68,8 +81,12 @@ public class Employee implements Comparator<Employee> {
 	 * @param o2 the second object to be compared.
 	 * @return
 	 */
+	/**
+	 * @param o the object to be compared.
+	 * @return
+	 */
 	@Override
-	public int compare(Employee o1, Employee o2) {
-		return o1.getName().compareTo(o2.getName());
+	public int compareTo(Employee o) {
+		return o.getName().compareTo(this.getName());
 	}
 }

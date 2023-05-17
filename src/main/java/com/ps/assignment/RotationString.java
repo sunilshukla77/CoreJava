@@ -24,6 +24,8 @@ public class RotationString {
 
     }
 
+    // join same source string
+    // (source+source).substring(i,source.length()+i);
     private boolean isRotationString(String source, String rotation) {
 
         if(source.length()==rotation.length()){
@@ -61,6 +63,5 @@ public class RotationString {
             j++;
         }
         System.out.println(sb.toString());
-
     }
 }

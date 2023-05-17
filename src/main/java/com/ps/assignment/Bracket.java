@@ -2,6 +2,7 @@ package com.ps.assignment;
 
 import org.junit.Test;
 
+import java.util.Arrays;
 import java.util.Stack;
 
 public class Bracket {
@@ -10,7 +11,7 @@ public class Bracket {
     public void bracket(){
         String brackets = "[{)}]";
         if(isValid(brackets)){
-            System.out.println("Valid");
+            System.out.println("Valid" + brackets);
         }else {
             System.out.println("InValid");
         }
@@ -18,30 +19,28 @@ public class Bracket {
     }
 
     private boolean isValid(String brackets) {
-        boolean isValid = false;
-        Stack<Character> bStack = new Stack();
-        if (!brackets.isEmpty()) {
-            for (char br : brackets.toCharArray()) {
-                if (br == '(' || br == '{' || br == '[') {
-                    bStack.push(br);
-                    //break;
-                } else if (br == ')') {
-                    if (!bStack.isEmpty() || bStack.pop() == '(') {
-                        isValid= true;
-                    }
-                } else if (br == '}'){
-                    if (!bStack.isEmpty() || bStack.pop() == '{') {
-                        isValid = true;
-                    }
-                } else if (br == ']') {
-                    if (!bStack.isEmpty() || bStack.pop() == ']') {
-                        isValid = true;
-                    }
-                } else if (bStack.isEmpty()) {
-                    isValid = true;
+        Stack<Character> stack = new Stack();
+        char[] chars = brackets.toCharArray();
+        for (int i = 0; i < chars.length; i++) {
+            char ch = chars[i];
+            if(ch=='(' || ch =='{' || ch != '['){
+                stack.push(ch);
+            }else {
+                if(stack.isEmpty()){
+                    return false;
                 }
+                else if (ch == ')' && '(' != stack.peek()) {
+                    return false;
+                }
+                else if (ch == '}' && '{' != stack.peek()) {
+                    return false;
+                }
+                else if (ch == ']' && '[' != stack.peek()) {
+                    return false;
+                } else stack.pop();
             }
         }
-        return isValid;
+        return stack.isEmpty();
+
     }
 }

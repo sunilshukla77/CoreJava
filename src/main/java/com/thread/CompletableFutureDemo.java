@@ -14,13 +14,15 @@ public class CompletableFutureDemo {
 	public static void main(String[] args) {
 
 		try {
-			List<Integer> list = Arrays.asList(5, 9, 14);
+			List<Integer> list = Arrays.asList(2, 3, 4);
 			list.stream()
 			.map(num->CompletableFuture.supplyAsync(()-> getNumber(num)))
-			.map(CompletableFuture->CompletableFuture.thenApply(n-> n*n))
+			.map(CompletableFuture->CompletableFuture.thenApply(n-> n+n))
 			.map(t->t.join())
 			.forEach(s->System.out.println(s));  
-			
+
+
+			// Second
 			CompletableFuture<String> future1 = CompletableFuture.supplyAsync(() -> "Hello");
 			CompletableFuture<String> future2 = CompletableFuture.supplyAsync(() -> "Beautiful");
 			CompletableFuture<String> future3 = CompletableFuture.supplyAsync(() -> "World");

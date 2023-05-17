@@ -43,7 +43,7 @@ public class Publisher extends Thread implements Subject {
 
     @Override
     public void run() {
-        System.out.println(Thread.currentThread().getName());
+        //System.out.println(Thread.currentThread().getName());
         this.message.produced();
         this.notifyUpdate(this.message);
     }

@@ -1,9 +1,8 @@
 package com.behavioral.ObserverPattern;
 
 import java.util.Queue;
-import java.util.concurrent.locks.ReentrantLock;
 
-public class MessageSubscriber implements Observer{
+public class SubscribedNews implements Observer{
 
     Queue<Message> queue;
 
@@ -12,6 +11,7 @@ public class MessageSubscriber implements Observer{
      */
     @Override
     public void update(Message m) {
+
         System.out.println(" Updated News : " + m);
     }
 

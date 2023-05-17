@@ -2,9 +2,8 @@ package com.behavioral.ObserverPattern;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Queue;
 
-public class MessagePublisher implements Subject{
+public class NewsPublisher implements Subject{
 
     List<Observer> observers = new ArrayList<>();
 

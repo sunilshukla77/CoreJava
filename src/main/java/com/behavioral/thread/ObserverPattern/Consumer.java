@@ -18,7 +18,17 @@ public class Consumer extends Thread implements Observer {
 
     @Override
     public synchronized void run() {
-        System.out.println(Thread.currentThread().getName());
-        message.consumed();
+        //System.out.println(Thread.currentThread().getName());
+        //message.consumed();
+        /*if(this.message.isConsumed()==true){
+            try {
+                this.wait();
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
+        }else{
+            this.message.setConsumed(true);
+        }*/
+        System.out.println("Run consumer");
     }
 }

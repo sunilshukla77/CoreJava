@@ -6,11 +6,11 @@ public class DemoOberver {
         Message aajTak = new Message("Aaj Tak updated news");
         Message zeeNews = new Message("Zee updated news");
 
-        MessagePublisher producer = new MessagePublisher();
+        NewsPublisher producer = new NewsPublisher();
 
-        MessageSubscriber subscriber1 = new MessageSubscriber();
+        SubscribedNews subscriber1 = new SubscribedNews();
 
-        MessageSubscriber subscriber2 = new MessageSubscriber();
+        SubscribedNews subscriber2 = new SubscribedNews();
 
 
         producer.attach(subscriber1);

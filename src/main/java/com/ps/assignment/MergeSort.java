@@ -9,15 +9,14 @@ public class MergeSort {
     private int[] merge(int[] left, int[] right) {
         int[] combineArray = new int[left.length + right.length];
         int index = 0;
-        int i = 0, j = 0;
-        while (i < left.length && j < right.length) {
-
+        int i = 0, j = 0; // left ka i and right ka j
+        while (i < left.length && j < right.length) {// lenght check karo
             if (left[i] < right[j]) {
-                combineArray[index] = left[i];
+                combineArray[index] = left[i]; // left ka add karo
                 index++;
                 i++;
             } else {
-                combineArray[index] = right[j];
+                combineArray[index] = right[j]; // right ka add karo
                 index++;
                 j++;
             }
@@ -41,14 +40,14 @@ public class MergeSort {
         int mid = arr.length/2;
         int[] left = mergeSort(Arrays.copyOfRange(arr, 0, mid));// Break using recursive mergeSort
         int[] right = mergeSort(Arrays.copyOfRange(arr, mid, arr.length)); // Break again left right
-        return  merge(left, right);
+
+        return  merge(left, right); //Combine both the array
     }
     @Test
     public void sort() {
         int[] arr = {1, 4, 3, 2, 9, 7, 6, 5};
         int[] result = mergeSort(arr);
         System.out.println( "\nOriginal Array: " + Arrays.toString( arr ) );
-
         System.out.println( "\nSorted Array: " + Arrays.toString( result ) );
 
     }

@@ -2,6 +2,7 @@ package com.ps.assignment;
 
 import org.junit.Test;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.stream.Stream;
@@ -16,13 +17,14 @@ public class Permitation {
 
     //cid = current index
     private void printPermutation(char[] chars, int cid) {
+        //Print chars
         if(cid == chars.length-1) {
             System.out.println("\n");
             for (int i = 0; i < chars.length; i++) {
                 System.out.print(chars[i] + " ");
             }
         }
-
+        System.out.println( " cid " +(cid+1));
         for (int i = cid; i < chars.length; i++) {
             swap(chars, i, cid);
             printPermutation(chars, cid+1);
@@ -31,6 +33,7 @@ public class Permitation {
     }
 
     private void swap(char[] chars, int i, int j) {
+        System.out.println(" i " + i +" j " + j);
         char temp = chars[i];
         chars[i] = chars[j];
         chars[j] = temp;

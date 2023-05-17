@@ -5,7 +5,7 @@ import java.time.Month;
 import java.util.Arrays;
 import java.util.List;
 
-class EmployeeDto {
+public class EmployeeDto {
     public static enum Gender {
         MALE, FEMALE
     }

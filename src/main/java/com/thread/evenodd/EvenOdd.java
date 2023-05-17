@@ -11,14 +11,14 @@ public class EvenOdd {
         synchronized(o1){
 
             while(counter<number) {
-                while (counter % 2 == 0) {
+                while (counter % 2 != 0) {  // agar even nahi hai means odd hai to go to wait
                     try {
                         o1.wait(1000);
                     } catch (InterruptedException e) {
                         throw new RuntimeException(e);
                     }
                 }
-                System.out.println("Odd Counter "+counter);
+                System.out.println("Even Counter "+counter);
                 counter++;
                 o1.notifyAll();
             }
@@ -28,7 +28,7 @@ public class EvenOdd {
     void printOdd(Object o1){
         synchronized (o1) {
             while (counter < number) {
-                while (counter % 2 == 1){
+                while (counter % 2 != 1){   // agar odd nahi hai  even nahi hai to go to wait
                     try {
                         o1.wait(1000);
                     } catch (InterruptedException e) {
@@ -36,7 +36,7 @@ public class EvenOdd {
                     }
 
                 }
-                System.out.println("Print Even "+ counter);
+                System.out.println("Print Odd "+ counter);
                 counter++;
                 o1.notify();
             }

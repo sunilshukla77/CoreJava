@@ -47,6 +47,50 @@ public class DemoOberver {
         producer.attach(subscriber3);
 
 
+        ExecutorService tp = Executors.newFixedThreadPool(5);
+
+        tp.execute(()-> {
+            try {
+                aajTak.print();
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
+        });
+
+        tp.execute(()-> {
+            try {
+                aajTak.print1();
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
+        });
+
+        tp.execute(()->{
+            try {
+                aajTak.print2();
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
+        });
+
+        tp.execute(()-> {
+            try {
+                aajTak.print3();
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
+        });
+
+        tp.execute(()-> {
+            try {
+                aajTak.print4();
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
+        });
+
+        //tp.shutdown();
+
 
     }
 }
