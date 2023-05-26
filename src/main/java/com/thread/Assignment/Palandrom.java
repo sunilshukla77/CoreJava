@@ -6,17 +6,17 @@ import java.util.stream.Collectors;
 public class Palandrom {
     public static void main(String[] args) {
         String val = "A man, a plan, a canal: Panama";
-        List<Character> arrayChar = val.chars().mapToObj(i -> (char) i).
+        List<Character> listChar = val.chars().mapToObj(i -> (char) i).
                 filter(Character::isAlphabetic)
                 .map(Character::toLowerCase).
                 collect(Collectors.toList());
-        System.out.println(arrayChar.toString());
-        System.out.println("Palandrom " + isPalandrom(arrayChar));
+        System.out.println(listChar.toString());
+        System.out.println("Palandrom " + isPalandrom(listChar));
     }
 
-    static boolean isPalandrom(List<Character> arrayChar) {// half rotation
-        for (int i = 0, j = arrayChar.size() - 1; i <= arrayChar.size() / 2; i++, j--) {
-            if (!arrayChar.get(i).equals(arrayChar.get(j))) {
+    static boolean isPalandrom(List<Character> listChar) {// half rotation
+        for (int i = 0, j = listChar.size() - 1; i <= listChar.size() / 2; i++, j--) {
+            if (!listChar.get(i).equals(listChar.get(j))) {
                 return false;
             }
         }

@@ -5,6 +5,7 @@ import com.core.dto.Employee;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.sql.SQLOutput;
 import java.util.*;
 import java.util.function.Function;
 import java.util.stream.Collectors;
@@ -137,9 +138,11 @@ public class StreamMapGroupTest {
     @Test
     public void charCount() {
         String str = "Japan";
-        str.chars().mapToObj(i -> (char) i)
-                .collect(Collectors.groupingBy(i -> i, Collectors.counting()))
-                .forEach((k, v) -> System.out.println(k + " " + v));
+        Map<Character, Long> charCount = str.chars().mapToObj(i -> (char) i)
+                .collect(Collectors.groupingBy(i -> i, Collectors.counting()));
+
+        charCount.entrySet().stream().forEach(System.out::println);
+
     }
 
 

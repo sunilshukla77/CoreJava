@@ -26,11 +26,13 @@ public class MapStream {
         empList.add(emp);
 
         Stream<String> st = Stream.of("Noida", "Pune", "Mumbai");
-        emp1 = new Employee("Raj Kumar Ji", 30, st.collect(Collectors.toList()), 5000, new Department(3, "Manager", "Bangalore"));
+        emp1 = new Employee("Raj Kumar Ji", 30,
+                st.collect(Collectors.toList()), 5000, new Department(3, "Manager", "Bangalore"));
         empList.add(emp1);
 
         Stream<String> st1 = Stream.of("Pune", "New York", "Mumbai");
-        emp2 = new Employee("Manish", 37, st1.collect(Collectors.toList()), 6000, new Department(1, "Manager", "Pune"));
+        emp2 = new Employee("Manish", 37,
+                st1.collect(Collectors.toList()), 6000, new Department(1, "Manager", "Pune"));
         empList.add(emp2);
         //key name and Salary value
         mapEmp = empList.stream().collect(Collectors.toMap(Employee::getName, Employee::getSalary));
@@ -47,7 +49,8 @@ public class MapStream {
     @Test
     public void DescSortKey(){
         Map<String, Integer> linkedMap = new LinkedHashMap<>();
-        mapEmp.entrySet().stream().sorted(Map.Entry.<String,Integer>comparingByKey().reversed()).forEach(e -> linkedMap.put(e.getKey(), e.getValue()));
+        mapEmp.entrySet().stream()
+                .sorted(Map.Entry.<String,Integer>comparingByKey().reversed()).forEach(e -> linkedMap.put(e.getKey(), e.getValue()));
         System.out.println("Desc Sorted key " + linkedMap);
     }
 
@@ -55,7 +58,8 @@ public class MapStream {
     public void AscSortValue() {
         //Sort Map by key and Value
         Map<String, Integer> linkedMap = new LinkedHashMap<>();
-        mapEmp.entrySet().stream().sorted(Map.Entry.comparingByValue()).limit(1).forEach(e -> linkedMap.put(e.getKey(), e.getValue()));
+        mapEmp.entrySet().stream()
+                .sorted(Map.Entry.comparingByValue()).limit(1).forEach(e -> linkedMap.put(e.getKey(), e.getValue()));
         System.out.println("Asc Sorted Value " + linkedMap);
     }
 }

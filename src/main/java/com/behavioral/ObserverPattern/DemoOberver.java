@@ -1,5 +1,8 @@
 package com.behavioral.ObserverPattern;
 
+import com.behavioral.ObserverPattern.impl.NewsPublisher;
+import com.behavioral.ObserverPattern.impl.SubscribedNews;
+
 public class DemoOberver {
     public static void main(String[] args) throws InterruptedException {
 
