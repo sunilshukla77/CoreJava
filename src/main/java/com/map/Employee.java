@@ -1,14 +1,14 @@
-package com.com.ibm;
+package com.map;
 
 public class Employee implements Comparable<Employee> {
 
-    String name;
-    int id;
-    int age;
+    private String name;
+    private int id;
+    private int age;
 
-    String dept;
+    private String dept;
 
-    int salary;
+    private int salary;
 
 
     public Employee(int id, String name, int age, String dept, int salary) {
@@ -23,40 +23,20 @@ public class Employee implements Comparable<Employee> {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public int getId() {
         return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public int getAge() {
         return age;
     }
 
-    public void setAge(int age) {
-        this.age = age;
-    }
-
     public String getDept() {
         return dept;
     }
 
-    public void setDept(String dept) {
-        this.dept = dept;
-    }
-
     public int getSalary() {
         return salary;
-    }
-
-    public void setSalary(int salary) {
-        this.salary = salary;
     }
 
     @Override
@@ -76,4 +56,5 @@ public class Employee implements Comparable<Employee> {
                 ", salary=" + salary +
                 '}';
     }
+
 }

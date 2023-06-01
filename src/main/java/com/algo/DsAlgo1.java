@@ -15,6 +15,7 @@ public class DsAlgo1 {
     /**
      * start traversing from end compare MAX value
      * The time complexity of this solution is O(n).
+     * [2, 16, 17]
      */
     @Test
     public void MaxValueRightElement() {
@@ -63,7 +64,7 @@ public class DsAlgo1 {
 
         double d1 = 12342.23;
         double d2 = 12342.23;
-        System.out.println(d1==d2);
+        System.out.println("double "+ (d1==d2));
     }
 
     private void printResult(Map<String, String> dataSet, String source) {

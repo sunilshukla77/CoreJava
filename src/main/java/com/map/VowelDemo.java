@@ -1,4 +1,4 @@
-package com.com.ibm;
+package com.map;
 
 import java.util.Scanner;
 

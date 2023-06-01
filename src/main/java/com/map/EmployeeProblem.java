@@ -1,4 +1,4 @@
-package com.com.ibm;
+package com.map;
 
 import java.util.Comparator;
 import java.util.LinkedHashMap;
@@ -7,7 +7,7 @@ import java.util.Map;
 import java.util.function.BinaryOperator;
 import java.util.stream.Collectors;
 
-public class Test {
+class EmployeeProblem {
 
 
     public static void main(String[] args) {
@@ -26,30 +26,31 @@ public class Test {
                 .filter(employee -> employee.getAge()>21)
                 .map(employee -> {
                     int incrementedSalary = employee.getSalary()+5000;
-                    employee.setSalary(incrementedSalary);
-                    return employee;
+                    return new Employee(employee.getId(), employee.getName(), employee.getAge(), employee.getDept(), incrementedSalary);
                 })
                 .collect(Collectors.toMap(Employee::getId, i->i))
                 .entrySet()
                 .stream()
-                .sorted((employeeEntry1,employeeEntry2) -> employeeEntry2.getKey().compareTo(employeeEntry1.getKey()))
-                .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue,(employee1,employee2)-> employee1, LinkedHashMap::new));
+                .sorted((employeeEntry1, employeeEntry2) -> employeeEntry2.getKey().compareTo(employeeEntry1.getKey()))
+                .collect(Collectors.toMap(
+                        Map.Entry::getKey,
+                        Map.Entry::getValue,
+                        (employee1,employee2)-> employee1,
+                        LinkedHashMap::new));
 
         map1.entrySet().forEach(System.out::println);
 
         Map<String, Integer> retVal = empList.stream()
-                .collect(Collectors.toMap(Employee::getDept, Employee::getId,
+                .collect(Collectors.toMap(Employee::getDept, Employee::getSalary,
                         BinaryOperator.maxBy(Comparator.comparing(empList::get))));
         System.out.println("\n\t\t");
+
         retVal.entrySet().forEach(System.out::println);
 
-        System.out.println("Employee id is key and value Employee");
-        empList.stream().collect(Collectors.toMap(Employee::getId, i->i))
-                .entrySet().forEach(System.out::println);
 
-        System.out.println("Collect department vise salary in the map where (key is deplt) and (value is salary)");
+        System.out.println("Collect department vise salary in the map where (key is dept) and (value is salary)");
 
-        Map<String, Integer> emplList= empList.stream().collect(Collectors.toMap(i->i.getDept(), i->i.salary));
+        Map<String, Integer> emplList= empList.stream().collect(Collectors.toMap(i->i.getDept(), i->i.getSalary()));
         emplList.entrySet().stream().forEach(System.out::println);
 
     }
@@ -63,20 +64,5 @@ public class Test {
 
 // 3. 2D [2][2] 1+2+3+4 = 10;
 
-    /*
-    int[] val = {1,2,3,4};
 
-        int[][] val1 = {{1,2},{3,4}};
-        //
-        int sum= 0;
-        for (int i = 0; i < val.length; i++) {
-
-            for (int j = 0; j < val[i]; j++) {
-            //sum+= val[i][j];
-            }
-            //sum+= val[i];
-
-        }
-        System.out.println(sum);
-     */
 }
