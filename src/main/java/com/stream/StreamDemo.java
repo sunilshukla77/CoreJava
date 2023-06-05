@@ -82,4 +82,12 @@ public class StreamDemo {
                 .forEach(n ->  System.out.print((char)n));
     }
 
+    @Test
+    public void charCount(){
+        String str = "Japan";
+        Map<Character, Long> charWithSize = str.chars().mapToObj(i -> (char) i)
+                .collect(Collectors.groupingBy(i -> i, Collectors.counting()));
+        charWithSize.entrySet().stream().forEach(System.out::println);
+    }
+
 }
