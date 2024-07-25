@@ -1,9 +1,8 @@
 package com.core;
 
-import org.junit.Test;
-
 import com.core.dto.Address;
 import com.core.dto.Person;
+import org.junit.Test;
 
 public class Immutable {
 
@@ -22,12 +21,12 @@ public class Immutable {
 		ad.setCity("Pune");
 		Person per = new Person("Sunil", 35, ad);
 
-		System.out.println(per.toString());
+		System.out.println(per);
 
 		Address ad1 = per.getAd();
 		ad1.setCity("DB");
 
-		System.out.println(per.toString());
+		System.out.println(per);
 	}
 	
 	/*
